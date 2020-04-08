@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :items
   get '/cart/clear' => 'cart#clear'
   get '/cart', to: 'cart#index'
   get '/cart/:id', to: 'cart#add'
