@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @item.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @item.author %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @item.genre %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @item.price %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @item.image_url %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
+
+<p id="notice"><%= notice %></p>
+
+<div id="itemsContainer">
+<h1><%= @item.title %></h1>
+
+<%= image_tag @item.image_url, :class => 'welcomIm' %>
+<h2><%= @item.description %></h1>
+
+<div class="itemhols">
+<p>Price <%= number_to_currency(@item.price, :unit => "€") %>
+
+<br>
+
+Author: <%= @item.author %>
+
+<br>
+
+Genre: <%= @item.genre %></p>
+<p>
+<%= link_to 'Back', items_path, :class => "button", :role => "button" %>
+<%= link_to 'Edit', edit_item_path(@item), :class => "button", :role => "button" %>
+</p>
+</div>
+</div>

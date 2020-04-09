@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<div id="itemsContainer">
+
+  <h1>Items</h1>
+
+    <% @items.each do |item| %>
+    <div class="itemhols">
+    <h1><%= item.title %></h1>
+    
+    <%= link_to (image_tag item.image_url, :class => "itemholsIm"), item %>
+    <p><%= item.description %></p>
+    <p>Price <%= number_to_currency(item.price, :unit => "€") %>
+    <br>
+    Genre: <%= item.genre %>
+    <br>
+    Author: <%= item.author %></p>
+    
+    <p>
+    <%= link_to 'Show', item, :class => "button", :role => "button" %>
+    <%= link_to 'Edit', edit_item_path(item), :class => "button", :role => "button" %>
+    <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
+    </p>
+    
+</div>
+  
+<% end %>
+
+<br>
+
+<%= link_to 'New Item', new_item_path, :class => "button", :role => "button" %>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.title %></td>
+        <td><%= item.author %></td>
+        <td><%= item.genre %></td>
+        <td><%= item.description %></td>
+        <td><%= item.price %></td>
+        <td><%= item.image_url %></td>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item', new_item_path %>
